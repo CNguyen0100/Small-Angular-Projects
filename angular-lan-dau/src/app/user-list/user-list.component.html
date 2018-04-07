@@ -1,0 +1,11 @@
+<ul>
+  <li *ngFor = "let name of names">
+    Hello {{name}}
+  </li>
+  <br />
+
+  <li *ngFor= "let lastName of lastNames">
+    <app-user-item [name] = "lastName" ></app-user-item> {{lastName}}
+  </li>
+
+</ul>

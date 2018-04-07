@@ -1,0 +1,27 @@
+CSS framework :
+  + Semantic-UI
+  + Zurb Foundation
+  + Twitter Bootstrap
+
+Adding interaction
+  - response to an event by surrounding the event name in parentheses().
+  - populating a template variable by adding syntax to the input elements on our form
+    + use hash # to tell angular to assign those tags to a local variable.
+
+Binding input to value
+  - resolve : #variable
+  - make #variable available to the expression within this view.
+  - then , #variable is an object that represent this "input" DOM element(type HTMLInputElement).
+  - to get value of object . using variable.value
+
+Binding action to event
+  - (<event>) ="<function()>"
+
+............
+Creating a new class that present a data structure - model
+// this a  plain class and not an Angular component.
+
+
+...............
+resorting based on Score
+c;ocl

@@ -1,0 +1,15 @@
+<div class="ui rows grid aligned" style="font-size:3em; color:#0d71bb">
+  <i class=" fas row fa-chevron-circle-up"></i>
+  <i class="fas row fa-chevron-circle-down"></i>
+</div>
+<app-product-image [product] = "product"></app-product-image>
+<div class="content">
+    <div class="header"> {{product.name}}</div>
+    <div class="meta">
+      <div class="product-sku">SKU #{{product.sku}}</div>
+    </div>
+    <div class="description">
+      <app-product-department [product]="product"></app-product-department>
+    </div>
+  </div>
+<app-product-display [price] = "product.price"></app-product-display>

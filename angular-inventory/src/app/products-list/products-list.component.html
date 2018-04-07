@@ -1,0 +1,6 @@
+<div class="ui items">
+  <app-product-row *ngFor="let mP of productList" [product]="mP"     (click) = "clicked(mP)"
+                   [class.selected] = "isSelected(mP)" ></app-product-row>
+</div>
+  <!--if I click even in product row emit st clicked function will be called-->
+  <!--see not for this line-->

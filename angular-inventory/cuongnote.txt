@@ -1,0 +1,90 @@
+-------- component selector
+a way to define what elements in the HTML will match this component.
+2 way to use
+  <component> </component>
+  <div component> <.div>
+-------------------------
+ inputs and outputs
+
+[productList] = "products"                                | input / into component
+(onProductSelected) = "productWasSelected($event)"        | output / what component output when event happen
+
+  1. Input
+  Data flows in to your component via input bindings
+  Events flow out of your component through output bindings
+
+  [squareBracket]
+  [productList] = "products"
+         |            |------------------the data we
+         |__________ from products-list component, use this variable
+
+  2. output
+  (onProductSelected) = "productWasSelected($event)"
+  we want to listen to the onProductSelected  -------- output from the
+
+.........................
+productList component
+a. component inputs
+  Inputs specify the parameter we expect our component to receive
+  When we specify that a Component takes an input, it is expected that the definition class will have an instance variable that will receive the value.
+  // if we need use two different names for the attribute and the property,
+  @Input('firstName') name: String;
+b. component outputs
+  - Send data from your component to the outside world.
+  - ex: the way to do this is by binding the click output of the button to a method declared on our component's controller.
+     ______________________
+     | (output) = "action" |
+     |_____________________|
+
+  - Event: built-in event adn public events (component outputs)
+  b.1. Custom events
+    Steps:
+    + Specify outputs in the @component configuration
+    + Attach an EventEmitter to the output property
+    + Emit an event from the EventEmitter, at the right time
+
+    >>>EventEmitter is an object that helps you implement the Observer Pattern
+    1. Maintain a list of subscriber and
+    2. publish events to them
+
+    ex:
+    let ee  = new EventEmitter();
+    ee.subscribe((name: string) => console.log(`Hello ${name}`));
+    ee.emit("Nate");
+
+    when we assign an EventEmitter to an output Angular automatically subscribes for us
+    You could add your own subscriptions if you want to
+
+______________________________________________________________________________________
+<product-row
+  *ngFor="let mP of productList"
+    [product]="mP"
+  <!--if I click even in product row emit st clicked function will be called-->
+  (click)='clicked(mP)'
+  <!--the boolean that isSelected() return is value of class.selected-->             |
+  [class.selected]="isSelected(myProduct)">                                          |
+</product-row>                                                                       |
+--------------------------------------------------------------------------------------
+Notes:   (click)='clicked(mP)'
+  Angular allows us to set classes conditionally on an element using this syntax.
+  This syntax says"add the CSS class selected if isSelected(myProduct)  return true"
+
+---------------------------------------------------------------------
+  isSelected(p: Product): boolean{
+    if(!p || !this.currentProduct){
+      return false;
+    }
+    return p.sku === this.currentProduct.sku;
+  }
+----------------------------------------------
+  match sku with current product
+
+_____________________________________________________
+
+______________________________
+  @HostBinding('attr.class') class = item;
+  "set attributes on the host element. The host is the element this component is attached to"
+  meaning  : want attach css <1> <2> to the host element
+  @HostBinding(<1>) name = <2>;
+
+______________________________

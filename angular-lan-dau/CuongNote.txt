@@ -1,0 +1,75 @@
+what I'm learning today
+Angular
+-> trying to make an simple Reddit Clone
+
+///detail
+app-root    | where our application will be rendered
+            | DEF ->  app-root is a component that is defined by our angular application
+            | ** we can defined our own HTML tags**
+
+component   | write HTML markup that becomes our interactive application
+            | ??? built-ins HTML tag like <select> <form> <video> all have functionality đc defined by our browser creator
+            | want to create new tags ->> idea behind component -> teach the browser new tag that have custom functionality
+
+|--->       create a  new component
+             ______________________________________
+            |ng generate component <component name>|
+            |______________________________________|
+|-->        Define a new component
+            2 part of a component: "A component decorator" & A component definition class
+
+/*
+Importing Dependencies
+            import { <component>,<component> } form <where to find the Dependencies>
+
+            - OnInit    | help us to run code when we initialize the Component
+            ______________________________________
+            |import{thing} from wherever          |
+            |_____________________________________|
+
+            - {thing}   | destructuring
+ */
+
+            1. Component decorators.
+            @Component({
+              ...
+            })
+              // can thing decorators as metadata added to our code
+              - selector:     | allow use component in markup
+                              | selector property indicates which DOM element this component is going to user
+              - templateUrl: 	| we will load our template from the html file
+							- template:` `	| define template in side our code, (mixing view and code)
+							- styleUrls:		| adding CSS Styles - style encapsulation
+
+          2. define Component
+          class         |
+          constructor   |function that is called when we create new instances of this class
+------------------------------------------------------------------------------------------------------
+LEARN ANGULAR
+*ngFor                  | repeat the same markup for a collection of objects (ng-repeat)
+
+  - use a component as a child Component
+      just need include the tag of child component
+  - pass data into the child Component
+      @Input decorator
+      declare input metadata @Input()
+      pass data []
+
+
+modules
+  -   decorator adds metadata to the class immediately
+  -   4 keys: declaration, imports , providers, and bootstrap.
+      + declarations      | specifies the components that are defined in this modules.
+                        | you have to declare component in a NgModule before you can use them in your template.
+      + imports         | describes which dependencies this module has.
+      + providers       | is used for dependency injection.
+                        | to make a service available to be injected throughout our application.
+      + bootstrap       | tells Angular that when this module is used to bootstrap an app, we need to load the AppComponent component as the top-level components
+
+/************************************************************
+
+
+ ************************************************************/
+ angular-reddit
+
+ Adding css
